@@ -1,22 +1,19 @@
 require('./bootstrap');
 
-import Alpine from 'alpinejs';
-
-window.Alpine = Alpine;
-
-Alpine.start();
-
-
 import Vue from 'vue';
 import App from './vue/App';
 import { createApp } from 'vue';
 
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faPlusSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import 'vuetify/styles'
+import { createVuetify } from 'vuetify'
+import * as components from 'vuetify/components'
+import * as directives from 'vuetify/directives'
 
-library.add( faPlusSquare, faTrash );
+const vuetify = createVuetify({
+    components,
+    directives,
+})
 
 const app = createApp(App);
-app.component('font-awesome-icon', FontAwesomeIcon);
+app.use(vuetify);
 app.mount('#app');

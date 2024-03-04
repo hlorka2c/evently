@@ -11,7 +11,6 @@
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.4.0",
-        "alpinejs": "^3.4.2",
         "autoprefixer": "^10.4.2",
         "axios": "^0.21",
         "laravel-mix": "^6.0.6",
@@ -26,6 +25,10 @@
         "@fortawesome/free-regular-svg-icons": "^6.5.1",
         "@fortawesome/free-solid-svg-icons": "^6.5.1",
         "@fortawesome/vue-fontawesome": "^3.0.6",
-        "vue": "^3.4.21"
+        "@mdi/font": "^7.4.47",
+        "@mdi/js": "^7.4.47",
+        "material-design-icons-iconfont": "^6.7.0",
+        "vue": "^3.4.21",
+        "vuetify": "^3.5.7"
     }
 }

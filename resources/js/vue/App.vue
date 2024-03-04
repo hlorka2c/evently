@@ -1,12 +1,14 @@
 <template>
-    <div class="eventListContainer">
+    <v-card class="container">
         <div class="heading">
-            <h2 id="title">Event List</h2>
+            <h2 id="title" class="mb-8">Evently</h2>
             <add-event-form v-on:reloadlist="getList()"/>
         </div>
 
-        <list-view :events="events" v-on:reloadlist="getList()"/>
-    </div>
+        <div class="bodyng">
+            <list-view :events="events" v-on:reloadlist="getList()"/>
+        </div>
+    </v-card>
 </template>
 
 <script>
@@ -42,13 +44,19 @@ export default {
 </script>
 
 <style scoped>
-.eventListContainer {
+.container {
     width: 100%;
     max-width: 600px;
     margin: auto;
 }
 
 .heading {
+    background: #e6e6e6;
+    padding: 10px;
+}
+
+.bodyng {
+    margin-top: 16px;
     background: #e6e6e6;
     padding: 10px;
 }

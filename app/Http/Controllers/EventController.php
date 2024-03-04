@@ -38,6 +38,10 @@ class EventController extends Controller
     {
         $newEvent = new Event;
         $newEvent->name = $request['event.name'];
+        $newEvent->location = $request['event.location'];
+        $newEvent->datetime = $request['event.datetime'];
+        $newEvent->note = $request['event.note'];
+
         $newEvent->save();
 
         return $newEvent;
@@ -76,7 +80,7 @@ class EventController extends Controller
     {
         $existingEvent = Event::find( $id );
         if( $existingEvent ) {
-            $existingEvent->completed = $request['event.completed'] ? true : false;
+            $existingEvent->completed = $request['event.completed'];
             $existingEvent->completed_at = $request['event.completed'] ? Carbon::now() : null;
             $existingEvent->save();
             return $existingEvent;
