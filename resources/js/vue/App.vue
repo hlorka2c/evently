@@ -1,12 +1,25 @@
 <template>
     <v-card class="container">
-        <div class="heading">
-            <h2 id="title" class="mb-8">Evently</h2>
-            <add-event-form v-on:reloadlist="getList()"/>
-        </div>
+        <v-tabs v-model="tab" bg-color="primary">
+            <v-tab value="home">Главная</v-tab>
+            <v-tab value="history">История</v-tab>
+        </v-tabs>
 
         <div class="bodyng">
-            <list-view :events="events" v-on:reloadlist="getList()"/>
+            <v-window v-model="tab">
+                <v-window-item value="home" key="home">
+                    <div class="heading">
+                        <h2 id="title" class="mb-8">Главная</h2>
+                        <add-event-form v-on:reloadlist="getList()" />
+                    </div>
+                    <list-view :events="events" mode="active" v-on:reloadlist="getList()" />
+                </v-window-item>
+
+                <v-window-item value="history" key="history">
+                    <h2 id="title" class="mb-8">История</h2>
+                    <list-view :events="events" v-on:reloadlist="getList()" />
+                </v-window-item>
+            </v-window>
         </div>
     </v-card>
 </template>
@@ -32,12 +45,18 @@ export default {
                 })
         }
     },
+    watch: {
+        tab() {
+            this.getList();
+        }
+    },
     created() {
         this.getList();
     },
     data() {
         return {
             events: [],
+            tab: 'home',
         }
     },
 }
@@ -65,4 +84,3 @@ export default {
     text-align: center;
 }
 </style>
-
