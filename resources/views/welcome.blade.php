@@ -11,8 +11,28 @@
 
     </head>
     <body style="padding: 16px;">
+        <div class="container">
+            @if (auth()->check())
+                {{ auth()->user()->name }}
+            @endif
+            @if (!auth()->check())
+                <a href='/login'>Войти</a>
+                <a href='/register'>Регистрация</a>
+            @else
+                <a href='/logout'>Выйти</a>
+            @endif
+        </div>
         <div id="app">
         </div>
         <script src="{{ mix('js/app.js') }}"></script>
     </body>
 </html>
+
+<style>
+.container {
+    max-width: 600px;
+    margin: auto;
+    width: 100%;
+    margin-bottom: 20px;
+}
+</style>

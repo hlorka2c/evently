@@ -15,6 +15,7 @@ class EventController extends Controller
      */
     public function index()
     {
+        return auth()->id();
         return Event::orderBy('created_at', 'DESC')->get();
     }
 
