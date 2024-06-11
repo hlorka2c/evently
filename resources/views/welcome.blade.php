@@ -22,8 +22,10 @@
                 <a href='/logout'>Выйти</a>
             @endif
         </div>
+
         <div id="app">
         </div>
+        <div id="user" data-user-id="{{Auth::check() ? Auth::user()->id : null}}"></div>
         <script src="{{ mix('js/app.js') }}"></script>
     </body>
 </html>

@@ -18,8 +18,6 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 
 Route::get('/', function () {
     return view('welcome');
-});
-
-Route::get('events', [EventController::class, 'index']);
+})->middleware('auth');
 
 require __DIR__.'/auth.php';

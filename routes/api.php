@@ -19,7 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/events', [EventController::class, 'index']);
+Route::post('/events', [EventController::class, 'index']);
 Route::prefix('/event')->group(  function () {
     Route::post('/store', [EventController::class, 'store']);
     Route::put('/{id}', [EventController::class, 'update']);

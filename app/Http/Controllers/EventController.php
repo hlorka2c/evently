@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\Event;
 use Illuminate\Support\Carbon;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 
@@ -13,10 +15,15 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return auth()->id();
-        return Event::orderBy('created_at', 'DESC')->get();
+        $user = Auth::user();
+        // dd($request->input('userId'));
+        // dd($request->all(), $request->input('userId'));
+
+        return Event::where('user', $request->input('userId')) 
+        ->orderBy('created_at', 'DESC')
+        ->get();
     }
 
     /**
@@ -42,6 +49,7 @@ class EventController extends Controller
         $newEvent->location = $request['event.location'];
         $newEvent->datetime = $request['event.datetime'];
         $newEvent->note = $request['event.note'];
+        $newEvent->user = $request['event.user'];
 
         $newEvent->save();
 

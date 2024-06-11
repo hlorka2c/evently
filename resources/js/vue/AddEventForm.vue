@@ -49,11 +49,15 @@ export default {
                 name: "",
                 location: '',
                 datetime: null,
-                note: ''
+                note: '',
+                user: '',
             }
         }
     },
-
+    mounted() {
+        this.event.user = this.userId
+    },
+    props: ['userId'],
     methods: {
         addEvent() {
             if (this.event.name == '') {
@@ -69,6 +73,7 @@ export default {
                         this.event.note = "";
                         this.event.datetime = null;
                         this.event.location = "";
+                        this.event.user = '';
 
                         this.$emit('reloadlist');
                     }

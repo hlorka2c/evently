@@ -10,7 +10,7 @@
                 <v-window-item value="home" key="home">
                     <div class="heading">
                         <h2 id="title" class="mb-8">Главная</h2>
-                        <add-event-form v-on:reloadlist="getList()" />
+                        <add-event-form :user-id="this.userId" v-on:reloadlist="getList()" />
                     </div>
                     <list-view :events="events" mode="active" v-on:reloadlist="getList()" />
                 </v-window-item>
@@ -36,7 +36,9 @@ export default {
     },
     methods: {
         getList() {
-            axios.get('api/events')
+            axios.post('api/events', {
+                userId: this.userId,
+            })
                 .then(response => {
                     this.events = response.data;
                 })
@@ -51,13 +53,20 @@ export default {
         }
     },
     created() {
+        this.userId = document.getElementById('user').dataset.userId;
+
         this.getList();
     },
     data() {
         return {
             events: [],
             tab: 'home',
+            userId: '',
         }
+    },
+    // props: ['userId'],
+    mounted() {
+        console.log(this.userId)
     },
 }
 </script>

@@ -28,9 +28,6 @@ import axios from 'axios';
 export default {
     props: ['event'],
     methods: {
-        isChecked() {
-
-        },
         updateCheck() {
             const completed = this.$refs.completed.checked;
             this.event.completed = completed == true ? 1 : 0;
