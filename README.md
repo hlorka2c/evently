@@ -3,6 +3,9 @@ Evently предоставляет функционал для планиров�
 
 ## Установка
 `npm install`
+
 `php artisan migrate`
+
 `npm run dev`
+
 `php artisan serve`
