@@ -569,6 +569,34 @@ select{
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+.container{
+  width: 100%;
+}
+@media (min-width: 640px){
+  .container{
+    max-width: 640px;
+  }
+}
+@media (min-width: 768px){
+  .container{
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px){
+  .container{
+    max-width: 1024px;
+  }
+}
+@media (min-width: 1280px){
+  .container{
+    max-width: 1280px;
+  }
+}
+@media (min-width: 1536px){
+  .container{
+    max-width: 1536px;
+  }
+}
 .fixed{
   position: fixed;
 }
@@ -666,9 +694,6 @@ select{
 .h-16{
   height: 4rem;
 }
-.h-20{
-  height: 5rem;
-}
 .h-4{
   height: 1rem;
 }
@@ -683,9 +708,6 @@ select{
 }
 .min-h-screen{
   min-height: 100vh;
-}
-.w-20{
-  width: 5rem;
 }
 .w-4{
   width: 1rem;

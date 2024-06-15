@@ -17,10 +17,6 @@ class EventController extends Controller
      */
     public function index(Request $request)
     {
-        $user = Auth::user();
-        // dd($request->input('userId'));
-        // dd($request->all(), $request->input('userId'));
-
         return Event::where('user', $request->input('userId')) 
         ->orderBy('created_at', 'DESC')
         ->get();

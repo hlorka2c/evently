@@ -64,10 +64,6 @@ export default {
             userId: '',
         }
     },
-    // props: ['userId'],
-    mounted() {
-        console.log(this.userId)
-    },
 }
 </script>
 
