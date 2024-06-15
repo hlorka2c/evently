@@ -6,6 +6,7 @@ Evently предоставляет функционал для планиров�
 
 `php artisan migrate`
 
+## Запуск
 `npm run dev`
 
 `php artisan serve`
